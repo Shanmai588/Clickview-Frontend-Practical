@@ -5,6 +5,7 @@ import { NextRequest } from "next/server";
 interface Props {
   params: { id: number; videoId: number };
 }
+// for add video id to playlist
 export async function POST(request: NextRequest, { params }: Props) {
   try {
     const data = await Database.playlists();
@@ -33,6 +34,7 @@ export async function POST(request: NextRequest, { params }: Props) {
     return new Response(`Unexpected Error` + params.id, { status: 500 });
   }
 }
+// for delete video id from playlist
 export async function DELETE(request: NextRequest, { params }: Props) {
   try {
     const data = await Database.playlists();

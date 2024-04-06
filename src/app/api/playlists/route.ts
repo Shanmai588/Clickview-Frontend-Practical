@@ -10,6 +10,7 @@ export async function GET() {
     return new Response(`File not found`, { status: 400 });
   }
 }
+// create a new playlist
 export async function POST(request: NextRequest) {
   try {
     const data = await Database.playlists();

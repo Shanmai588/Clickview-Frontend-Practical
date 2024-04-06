@@ -2,7 +2,6 @@ import { Playlist } from "@/interfaces/playlist";
 import { get } from "@/services/apiHelper";
 import React from "react";
 import PlayListVideoList from "./playlist-video-list";
-import VideoSelectButton from "./video-select-button";
 interface Props {
   id: number;
 }

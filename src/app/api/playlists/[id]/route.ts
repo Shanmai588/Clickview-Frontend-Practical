@@ -3,6 +3,7 @@ import { NextRequest } from "next/server";
 interface Props {
   params: { id: number };
 }
+// for get playlist
 export async function GET(request: NextRequest, { params }: Props) {
   try {
     const data = await Database.playlists();
@@ -17,6 +18,7 @@ export async function GET(request: NextRequest, { params }: Props) {
     return new Response(`Playlist not found: ` + params.id, { status: 401 });
   }
 }
+// delete playlist from db
 export async function DELETE(request: NextRequest, { params }: Props) {
   try {
     let data = await Database.playlists();

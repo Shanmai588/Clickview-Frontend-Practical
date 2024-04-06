@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 interface Props {
   params: { id: number };
 }
+// get a single video
 export async function GET(request: NextRequest, { params }: Props) {
   try {
     const data = await Database.videos();

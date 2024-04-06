@@ -23,6 +23,7 @@ export function PlaylistItem(props: PlaylistItemProps) {
       <Col xs="12" md="9" className="d-flex justify-content-between">
         <p className="mb-0">{playlist.description}</p>
         <div className="ml-auto">
+          {/* button to view the playlist */}
           <Link href={"/playlists/" + playlist.id}>
             <Button className="btn btn-warning">View</Button>
           </Link>

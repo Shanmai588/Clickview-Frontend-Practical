@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import { Modal, Button, Form, Col } from "react-bootstrap";
-import { Video } from "@/interfaces/video"; // Importing the Video interface
 import { Playlist } from "@/interfaces/playlist";
 
 interface Props {
