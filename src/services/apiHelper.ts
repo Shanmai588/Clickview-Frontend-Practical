@@ -16,7 +16,10 @@ const handleResponse = async <T>(response: Response) => {
 };
 export const get = async <T>(endPoint: string) => {
   try {
-    const response = await fetch(`${baseURL}/${endPoint}`);
+    const response = await fetch(`${baseURL}/${endPoint}`, {
+      method: "GET",
+      cache: "no-cache",
+    });
     return handleResponse<T>(response);
   } catch (error) {
     return { data: null, error: { message: "Unknown error", status: 500 } };
@@ -26,6 +29,7 @@ export const post = async <T>(endPoint: string, body: any) => {
   try {
     const response = await fetch(`${baseURL}/${endPoint}`, {
       method: "POST",
+      cache: "no-cache",
       headers: {
         "Content-Type": "application/json",
       },
@@ -40,6 +44,7 @@ export const del = async <T>(endPoint: string) => {
   try {
     const response = await fetch(`${baseURL}/${endPoint}`, {
       method: "DELETE",
+      cache: "no-cache",
     });
     return handleResponse<T>(response);
   } catch (error) {

@@ -10,14 +10,12 @@ export async function POST(request: NextRequest, { params }: Props) {
     const data = await Database.playlists();
     const numericPlaylistId = Number(params.id);
     const playlist = data.find((p) => p.id === numericPlaylistId);
-    console.log(playlist);
     if (!playlist) {
       return new Response(`Playlist not found: ` + params.videoId, {
         status: 400,
       });
     }
     const numericVideoId = Number(params.videoId);
-    console.log(numericVideoId);
     if (playlist.videoIds.includes(numericVideoId)) {
       return new Response(`Video already in playlist: ` + params.videoId, {
         status: 409,
@@ -30,7 +28,6 @@ export async function POST(request: NextRequest, { params }: Props) {
       });
     }
     playlist.videoIds.push(numericVideoId);
-
     return Response.json(params.videoId);
   } catch {
     return new Response(`Unexpected Error` + params.id, { status: 500 });
@@ -53,7 +50,6 @@ export async function DELETE(request: NextRequest, { params }: Props) {
       });
     }
     playlist.videoIds = playlist.videoIds.filter((id) => id !== numericVideoId);
-
     return new Response(JSON.stringify(numericVideoId), {
       status: 200,
     });

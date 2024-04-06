@@ -14,7 +14,7 @@ const PlayListVideoList = ({ playlistId }: Props) => {
   const [videos, setVideos] = useState<Video[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error>();
-
+  // Fetch videos from the server
   useEffect(() => {
     const fetchVideos = async () => {
       try {
@@ -39,7 +39,7 @@ const PlayListVideoList = ({ playlistId }: Props) => {
 
     fetchVideos();
   }, [playlistId]);
-
+  // Delete video function
   const deleteVideo = async (videoId: number) => {
     const { error } = await del(`playlists/${playlistId}/videos/${videoId}`);
     if (!error) setVideos(videos.filter((v) => v.id !== videoId));
